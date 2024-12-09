@@ -9,25 +9,29 @@ export default function SideBar() {
       >
         <Menu>
           <SubMenu label="I'm looking for" className="font-Roboto">
-            <MenuItem>
+            <MenuItem className="text-[12px]">
               <Checkbox
                 sx={{
                   color: "pink",
                   "&.Mui-checked": {
                     color: "pink",
-                  }, fontFamily: "Roboto"
+                  }, fontFamily: "Roboto",
+                  transform: "scale(0.7)"
                 }}
                 inputProps={{ "aria-label": "controlled" }}
               />
               Groom
             </MenuItem>
-            <MenuItem>
+            <MenuItem className="text-[12px]">
               <Checkbox
                 sx={{
                   color: "pink",
                   "&.Mui-checked": {
                     color: "pink",
                   },
+                  transform: "scale(0.7)",
+                  fontFamily: "Roboto",
+                  
                 }}
                 inputProps={{ "aria-label": "controlled" }}
               />
