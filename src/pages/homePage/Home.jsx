@@ -18,7 +18,6 @@ import MoreIcon from "@mui/icons-material/MoreVert";
 import { useState } from "react";
 import SideBar from "./SideBar";
 
-
 // const Search = styled("div")(({ theme }) => ({
 //   position: "relative",
 //   borderRadius: theme.shape.borderRadius,
@@ -164,7 +163,7 @@ export default function Home() {
   );
 
   return (
-    <div>
+    <div className="">
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static" sx={{ backgroundColor: "#ff0074" }}>
           <Toolbar>
@@ -176,7 +175,7 @@ export default function Home() {
               sx={{ mr: 2 }}
               onClick={toggleMenu}
             >
-              <MenuIcon />
+              {/* <MenuIcon /> */}
             </IconButton>
             <Typography
               variant="h6"
@@ -245,8 +244,7 @@ export default function Home() {
         {renderMobileMenu}
         {renderMenu}
       </Box>
-      <SideBar/>
-      
+      <SideBar />
     </div>
   );
 }

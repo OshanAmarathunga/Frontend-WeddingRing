@@ -1,13 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 import Checkbox from "@mui/material/Checkbox";
 import PersonCard from "../card/PersonCard";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
 
 export default function SideBar() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
   return (
     <div className="flex">
-      <div>
-        <Sidebar className="bg-[#FFB37B]">
+      {/* Mobile Toggle Button */}
+      <button
+        className="lg:hidden absolute top-2 left-4 z-50 bg-pink-300 p-2 rounded-full"
+        onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+      >
+        {isSidebarOpen ? <CloseIcon /> : <MenuIcon />}
+      </button>
+
+      {/* Sidebar */}
+      <div
+        className={`${
+          isSidebarOpen ? "block" : "hidden"
+        } lg:block fixed lg:relative z-40 bg-pink-300 lg:ml-44 lg:mt-4 h-screen`}
+      >
+        <Sidebar>
           <Menu>
             <SubMenu label="I'm looking for" className="font-Roboto">
               <MenuItem className="text-[12px]">
@@ -44,7 +61,9 @@ export default function SideBar() {
           </Menu>
         </Sidebar>
       </div>
-      <div className="p-7 flex">
+
+      {/* Main Content */}
+      <div className="p-4">
         <PersonCard />
       </div>
     </div>
