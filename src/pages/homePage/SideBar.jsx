@@ -9,10 +9,10 @@ export default function SideBar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <div className="flex md:mt-16">
+    <div className="flex relative top-[60px]">
       {/* Mobile Toggle Button */}
       <button
-        className="lg:hidden absolute top-2 left-4 z-50 bg-pink-300 p-2 rounded-full"
+        className="lg:hidden absolute top-[-50px] left-4 z-50 bg-pink-300 p-2 rounded-full"
         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
       >
         {isSidebarOpen ? <CloseIcon /> : <MenuIcon />}
