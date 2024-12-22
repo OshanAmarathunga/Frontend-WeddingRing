@@ -9,7 +9,7 @@ export default function SideBar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <div className="flex">
+    <div className="flex md:mt-16">
       {/* Mobile Toggle Button */}
       <button
         className="lg:hidden absolute top-2 left-4 z-50 bg-pink-300 p-2 rounded-full"

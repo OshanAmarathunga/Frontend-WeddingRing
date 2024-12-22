@@ -165,7 +165,7 @@ export default function Home() {
   return (
     <div className="">
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static" sx={{ backgroundColor: "#ff0074" }}>
+        <AppBar  sx={{ backgroundColor: "#ff0074",position:{xs:"static" ,md:"fixed"} }}>
           <Toolbar>
             <IconButton
               size="large"
