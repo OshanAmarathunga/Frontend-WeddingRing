@@ -8,7 +8,7 @@ export default function Header() {
     navigate("/register");
   };
   return (
-    <div className="bg-[#820059] h-16 flex items-center px-4 rounded-md shadow-2xl fixed w-full z-50">
+    <div className=" bg-gradient-to-b from-[#820059] to-[#b2007a] h-16 flex items-center px-4 rounded-md shadow-2xl fixed w-full z-50">
       <img
         src="ring.png"
         alt="Wedding Ring Logo"
