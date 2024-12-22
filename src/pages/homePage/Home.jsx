@@ -176,12 +176,13 @@ export default function Home() {
               onClick={toggleMenu}
             >
               {/* <MenuIcon /> */}
+              <img src="ring.png" className="size-8"/>
             </IconButton>
             <Typography
               variant="h6"
               noWrap
               component="div"
-              sx={{ display: { xs: "none", sm: "block" } }}
+              sx={{ display: { xs: "none", sm: "block" },marginLeft:-2 }}
             >
               Wedding Ring
             </Typography>
