@@ -51,7 +51,7 @@ export default function Register() {
           <h2 className="text-3xl font-Roboto font-bold text-center text-[#820059] mb-6">
             Register with US!
           </h2>
-          <div className="">
+          <div className="fixed top-4 right-4">
             <button onClick={()=>{navigate("/")}}><IoArrowBackCircleSharp className=" size-7 hover:size-9"/></button>
           </div>
         </div>
