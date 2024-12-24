@@ -3,38 +3,34 @@ import { IoArrowBackCircleSharp } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 
 export default function Register() {
+  const navigate = useNavigate();
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [displayName, setDisplayName] = useState("");
+  const [gender, setGender] = useState("");
+  const [contactNo, setContactNo] = useState("");
+  const [landLineNo, setLandLineNo] = useState("");
+  const [email, setEmail] = useState("");
+  const [birthDay, setBirthDay] = useState("");
+  const [religion, setReligion] = useState("");
+  const [ethnicity, setEthnicity] = useState("");
+  const [height, setHeight] = useState("");
+  const [civilStatus, setCivilStatus] = useState("");
+  const [countryOfResidence, setCountryOfResidence] = useState("");
+  const [district, setDistrict] = useState("");
+  const [city, setCity] = useState("");
+  const [educationLevel, setEducationLevel] = useState("");
+  const [currentProfession, setCurrentProfession] = useState("");
+  const [caste, setCaste] = useState("");
+  const [description, setDescription] = useState("");
+  const [photos, setPhotos] = useState([]);
+  const [fatherProfession, setFatherProfession] = useState("");
+  const [motherProfession, setMotherProfession] = useState("");
+  const [horoScopeMatching, setHoroScopeMatching] = useState("");
 
-  const navigate=useNavigate();
-  const [firstName,setFirstName]=useState("");
-  const [lastName,setLastName]=useState("");
-  const [displayName,setDisplayName]=useState("");
-  const [gender,setGender]=useState("");
-  const [contactNo,setContactNo]=useState("");
-  const [landLineNo,setLandLineNo]=useState("");
-  const [email,setEmail]=useState("");
-  const [birthDay,setBirthDay]=useState("");
-  const [religion,setReligion]=useState("");
-  const [ethnicity,setEthnicity]=useState("");
-  const [height,setHeight]=useState("");
-  const [civilStatus,setCivilStatus]=useState("");
-  const [countryOfResidence,setCountryOfResidence]=useState("");
-  const [district,setDistrict]=useState("");
-  const [city,setCity]=useState("");
-  const [educationLevel,setEducationLevel]=useState("");
-  const [currentProfession,setCurrentProfession]=useState("");
-  const [caste,setCaste]=useState("");
-  const [description,setDescription]=useState("");
-  const [photos,setPhotos]=useState([]);
-  const [fatherProfession,setFatherProfession]=useState("");
-  const [motherProfession,setMotherProfession]=useState("");
-  const [horoScopeMatching,setHoroScopeMatching]=useState("");
-
-  function handleSubmit(e){
+  function handleSubmit(e) {
     e.preventDefault();
   }
-  
-
-
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#820059] to-[#ff0074] flex items-center justify-center p-4">
@@ -44,7 +40,16 @@ export default function Register() {
             Register with US!
           </h2>
           <div className="fixed top-4 right-4">
-            <button onClick={()=>{navigate("/")}}><IoArrowBackCircleSharp title="Go Back to Home" className=" size-7 hover:size-9"/></button>
+            <button
+              onClick={() => {
+                navigate("/");
+              }}
+            >
+              <IoArrowBackCircleSharp
+                title="Go Back to Home"
+                className=" size-7 hover:size-9"
+              />
+            </button>
           </div>
         </div>
         <form className="space-y-6" onSubmit={handleSubmit}>
@@ -57,7 +62,7 @@ export default function Register() {
                 type="text"
                 name="firstName"
                 value={firstName}
-                onChange={(e)=>setFirstName(e.target.value)}
+                onChange={(e) => setFirstName(e.target.value)}
                 placeholder="Enter your first name"
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
               />
@@ -70,7 +75,7 @@ export default function Register() {
                 type="text"
                 name="lastName"
                 value={lastName}
-                onChange={(e)=>setLastName(e.target.value)}
+                onChange={(e) => setLastName(e.target.value)}
                 placeholder="Enter your last name"
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
               />
@@ -83,7 +88,7 @@ export default function Register() {
                 type="text"
                 name="displayName"
                 value={displayName}
-                onChange={(e)=>setDisplayName(e.target.value)}
+                onChange={(e) => setDisplayName(e.target.value)}
                 placeholder="Enter your display name"
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
               />
@@ -100,7 +105,7 @@ export default function Register() {
               <select
                 name="gender"
                 value={gender}
-                onChange={(e)=>setGender(e.target.value)}
+                onChange={(e) => setGender(e.target.value)}
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
               >
                 <option value="">Select Gender</option>
@@ -117,7 +122,7 @@ export default function Register() {
                 type="date"
                 name="birthDay"
                 value={birthDay}
-                onChange={(e)=>setBirthDay(e.target.value)}
+                onChange={(e) => setBirthDay(e.target.value)}
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
               />
             </div>
@@ -126,10 +131,10 @@ export default function Register() {
                 Email
               </label>
               <input
-                type="text"
+                type="email"
                 name="displayName"
                 value={email}
-                onChange={(e)=>setEmail(e.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
               />
@@ -146,7 +151,7 @@ export default function Register() {
                 type="text"
                 name="contactNo"
                 value={contactNo}
-                onChange={(e)=>setContactNo(e.target.value)}
+                onChange={(e) => setContactNo(e.target.value)}
                 placeholder="Enter your contact number"
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
               />
@@ -159,7 +164,7 @@ export default function Register() {
                 type="text"
                 name="landLineNo"
                 value={landLineNo}
-                onChange={(e)=>setLandLineNo(e.target.value)}
+                onChange={(e) => setLandLineNo(e.target.value)}
                 placeholder="Enter your landline number"
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
               />
@@ -176,7 +181,7 @@ export default function Register() {
                 type="text"
                 name="religion"
                 value={religion}
-                onChange={(e)=>setReligion(e.target.value)}
+                onChange={(e) => setReligion(e.target.value)}
                 placeholder="Enter your religion"
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
               />
@@ -185,14 +190,19 @@ export default function Register() {
               <label className="block text-sm font-medium text-gray-700">
                 Ethnicity
               </label>
-              <input
-                type="text"
+              <select
                 name="ethnicity"
                 value={ethnicity}
-                onChange={(e)=>setEthnicity(e.target.value)}
-                placeholder="Enter your ethnicity"
+                onChange={(e) => setEthnicity(e.target.value)}
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
-              />
+              >
+                <option value="">Select ethnicity</option>
+                <option value="Sinhalese">Sinhalese</option>
+                <option value="Tamil">Tamil</option>
+                <option value="Muslim">Muslim</option>
+                <option value="Burgher">Burgher</option>
+                <option value="Other">Other</option>
+              </select>
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -204,7 +214,7 @@ export default function Register() {
                 type="text"
                 name="height"
                 value={height}
-                onChange={(e)=>setHeight(e.target.value)}
+                onChange={(e) => setHeight(e.target.value)}
                 placeholder="Enter your height"
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
               />
@@ -217,7 +227,7 @@ export default function Register() {
                 type="text"
                 name="civilStatus"
                 value={civilStatus}
-                onChange={(e)=>setCivilStatus(e.target.value)}
+                onChange={(e) => setCivilStatus(e.target.value)}
                 placeholder="Enter your civil status"
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
               />
@@ -229,14 +239,26 @@ export default function Register() {
               <label className="block text-sm font-medium text-gray-700">
                 Country Of Residence
               </label>
-              <input
-                type="text"
+              <select
                 name="countryOfResidence"
                 value={countryOfResidence}
-                onChange={(e)=>setCountryOfResidence(e.target.value)}
-                placeholder="Enter your country of residence"
+                onChange={(e) => setCountryOfResidence(e.target.value)}
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
-              />
+              >
+                <option value="">Select Country</option>
+                <option value="Sri Lanka">Sri Lanka</option>
+                <option value="Australia">Australia</option>
+                <option value="Canada">Canada</option>
+                <option value="Italy">Italy</option>
+                <option value="Japan">Japan</option>
+                <option value="Maldives">Maldives</option>
+                <option value="New Zealand">New Zealand</option>
+                <option value="Singapore">Singapore</option>
+                <option value="South Koria">South Koria</option>
+                <option value="United Kingdom">United Kingdom</option>
+                <option value="United States">United States</option>
+                <option value="Other">Other</option>
+              </select>
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700">
@@ -246,7 +268,7 @@ export default function Register() {
                 type="text"
                 name="district"
                 value={district}
-                onChange={(e)=>setDistrict(e.target.value)}
+                onChange={(e) => setDistrict(e.target.value)}
                 placeholder="Enter your district"
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
               />
@@ -262,7 +284,7 @@ export default function Register() {
                 type="text"
                 name="city"
                 value={city}
-                onChange={(e)=>setCity(e.target.value)}
+                onChange={(e) => setCity(e.target.value)}
                 placeholder="Enter your city"
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
               />
@@ -275,7 +297,7 @@ export default function Register() {
                 type="text"
                 name="educationLevel"
                 value={educationLevel}
-                onChange={(e)=>setEducationLevel(e.target.value)}
+                onChange={(e) => setEducationLevel(e.target.value)}
                 placeholder="Enter your education level"
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
               />
@@ -291,7 +313,7 @@ export default function Register() {
                 type="text"
                 name="currentProfession"
                 value={currentProfession}
-                onChange={(e)=>setCurrentProfession(e.target.value)}
+                onChange={(e) => setCurrentProfession(e.target.value)}
                 placeholder="Enter your current profession"
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
               />
@@ -304,14 +326,12 @@ export default function Register() {
                 type="text"
                 name="caste"
                 value={caste}
-                onChange={(e)=>setCaste(e.target.value)}
+                onChange={(e) => setCaste(e.target.value)}
                 placeholder="Enter your caste"
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
               />
             </div>
           </div>
-
-          
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
@@ -322,7 +342,7 @@ export default function Register() {
                 type="text"
                 name="fatherProfession"
                 value={fatherProfession}
-                onChange={(e)=>setFatherProfession(e.target.value)}
+                onChange={(e) => setFatherProfession(e.target.value)}
                 placeholder="Enter your father profession"
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
               />
@@ -335,7 +355,7 @@ export default function Register() {
                 type="text"
                 name="motherProfession"
                 value={motherProfession}
-                onChange={(e)=>setMotherProfession(e.target.value)}
+                onChange={(e) => setMotherProfession(e.target.value)}
                 placeholder="Enter your mother profession"
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
               />
@@ -344,14 +364,17 @@ export default function Register() {
               <label className="block text-sm font-medium text-gray-700">
                 Horescope matching required
               </label>
-              <input
-                type="text"
+              <select
                 name="horoScopeMatching"
                 value={horoScopeMatching}
-                onChange={(e)=>setHoroScopeMatching(e.target.value)}
-                placeholder="Enter your horoscope matching required or not"
+                onChange={(e) => setHoroScopeMatching(e.target.value)}
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
-              />
+              >
+                <option value="">Select</option>
+                <option value="Male">Yes</option>
+                <option value="Female">No</option>
+                <option value="Other">Not much consider</option>
+              </select>
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-1 gap-4">
@@ -359,14 +382,22 @@ export default function Register() {
               <label className="block text-sm font-medium text-gray-700">
                 Description
               </label>
-              <input
+              <textarea
+                name="description"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                rows={1}
+                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
+                placeholder="Enter your description"
+              ></textarea>
+              {/* <input
                 type="text"
                 name="description"
                 value={description}
                 onChange={(e)=>setDescription(e.target.value)}
                 placeholder="Enter your description"
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
-              />
+              /> */}
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700">
@@ -376,7 +407,7 @@ export default function Register() {
                 type="text"
                 name="photos"
                 value={photos}
-                onChange={(e)=>setPhotos(e.target.value)}
+                onChange={(e) => setPhotos(e.target.value)}
                 placeholder="Add your photos"
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
               />
