@@ -28,8 +28,40 @@ export default function Register() {
   const [motherProfession, setMotherProfession] = useState("");
   const [horoScopeMatching, setHoroScopeMatching] = useState("");
 
+  const [feet, setFeet] = useState("");
+  const [inch, setInch] = useState("");
+
   function handleSubmit(e) {
     e.preventDefault();
+
+    const data = {
+      firstName: firstName,
+      lastName: lastName,
+      displayName: displayName,
+      gender:gender,
+      contactNo:contactNo,
+      landLineNo:landLineNo,
+      email:email,
+      birthDay:birthDay,
+      religion:religion,
+      ethnicity:ethnicity,
+      height:height,
+      civilStatus:civilStatus,
+      countryOfResidence:countryOfResidence,
+      district:district,
+      city:city,
+      educationLevel:educationLevel,
+      currentProfession:currentProfession,
+      caste:caste,
+      description:description,  
+      photos:photos,
+      fatherProfession:fatherProfession,
+      motherProfession:motherProfession,
+      isHoroscopeMatchingRequired:horoScopeMatching
+    }
+
+    console.log(data);
+    
   }
 
   return (
@@ -218,14 +250,29 @@ export default function Register() {
               <label className="block text-sm font-medium text-gray-700">
                 Height
               </label>
-              <input
-                type="text"
-                name="height"
-                value={height}
-                onChange={(e) => setHeight(e.target.value)}
-                placeholder="Enter your height"
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
-              />
+              <div className="grid grid-cols-2 gap-4">
+                
+                <div>
+                  <input
+                    type="text"
+                    name="feet"
+                    value={feet}
+                    onChange={(e) => setFeet(e.target.value)}
+                    placeholder="Feet"
+                    className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
+                  />
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    name="inch"
+                    value={inch}
+                    onChange={(e) => setInch(e.target.value)}
+                    placeholder="Inch"
+                    className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
+                  />
+                </div>
+              </div>
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700">
@@ -342,7 +389,9 @@ export default function Register() {
                 <option value="Divorced">Diploma</option>
                 <option value="Seperated">Proffessional Qualification</option>
                 <option value="Seperated">Undergraduate</option>
-                <option value="Seperated">Bachelor's degree or equivalant</option>
+                <option value="Seperated">
+                  Bachelor's degree or equivalant
+                </option>
                 <option value="Seperated">Post graduate diploma</option>
                 <option value="Seperated">Master's degree fo equivalant</option>
                 <option value="Seperated">PHD or Post Doctoral</option>
@@ -417,9 +466,9 @@ export default function Register() {
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
               >
                 <option value="">Select</option>
-                <option value="Male">Yes</option>
-                <option value="Female">No</option>
-                <option value="Other">Not much consider</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="Not much consider">Not much consider</option>
               </select>
             </div>
           </div>
@@ -436,14 +485,13 @@ export default function Register() {
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
                 placeholder="Enter your description"
               ></textarea>
-              
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700">
-                Photos
+                Photos ( uplaod clear full face photo)
               </label>
               <input
-                type="text"
+                type="file"
                 name="photos"
                 value={photos}
                 onChange={(e) => setPhotos(e.target.value)}
