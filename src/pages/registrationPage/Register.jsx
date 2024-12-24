@@ -33,10 +33,10 @@ export default function Register() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#820059] to-[#ff0074] flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-b from-[#FFD369] to-[#FFD369] flex items-center justify-center p-4">
       <div className="bg-white rounded-lg shadow-xl p-8 w-full max-w-4xl">
         <div className="flex justify-between items-center text-center">
-          <h2 className="text-3xl font-Roboto font-bold text-center text-[#820059] mb-6">
+          <h2 className="text-3xl font-Roboto font-bold text-center text-[#222831] mb-6">
             Register with US!
           </h2>
           <div className="fixed top-4 right-4">
@@ -177,14 +177,22 @@ export default function Register() {
               <label className="block text-sm font-medium text-gray-700">
                 Religion
               </label>
-              <input
-                type="text"
+              <select
                 name="religion"
                 value={religion}
                 onChange={(e) => setReligion(e.target.value)}
-                placeholder="Enter your religion"
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
-              />
+              >
+                <option value="">Select Religion</option>
+                <option value="Buddhist">Buddhist</option>
+                <option value="Christian">Christian</option>
+                <option value="Hindu">Hindu</option>
+                <option value="Islam">Islam</option>
+                <option value="Agnostic">Agnostic</option>
+                <option value="Catholic">Catholic</option>
+                <option value="Non">Non</option>
+                <option value="Other">Other</option>
+              </select>
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700">
@@ -417,7 +425,7 @@ export default function Register() {
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full bg-[#820059] text-white font-bold py-2 rounded-lg hover:bg-[#ff0074] transition-all"
+            className="w-full bg-[#393E46] text-white font-bold py-2 rounded-lg hover:bg-[#222831] transition-all"
           >
             Register
           </button>
