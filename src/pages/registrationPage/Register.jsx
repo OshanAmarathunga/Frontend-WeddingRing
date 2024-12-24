@@ -231,14 +231,18 @@ export default function Register() {
               <label className="block text-sm font-medium text-gray-700">
                 Civil Status
               </label>
-              <input
-                type="text"
-                name="civilStatus"
+              <select
+                name="horoScopeMatching"
                 value={civilStatus}
                 onChange={(e) => setCivilStatus(e.target.value)}
-                placeholder="Enter your civil status"
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
-              />
+              >
+                <option value="">Select</option>
+                <option value="Never Married">Never Married</option>
+                <option value="Widowed">Widowed</option>
+                <option value="Divorced">Divorced</option>
+                <option value="Seperated">Seperated</option>
+              </select>
             </div>
           </div>
 
@@ -272,14 +276,39 @@ export default function Register() {
               <label className="block text-sm font-medium text-gray-700">
                 District
               </label>
-              <input
-                type="text"
+              <select
                 name="district"
                 value={district}
                 onChange={(e) => setDistrict(e.target.value)}
-                placeholder="Enter your district"
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
-              />
+              >
+                <option value="">Select</option>
+                <option value="Colombo">Colombo</option>
+                <option value="Kaluthara">Kaluthara</option>
+                <option value="Gampaha">Gampaha</option>
+                <option value="Monaragala">Monaragala</option>
+                <option value="Badulla">Badulla</option>
+                <option value="Mathara">Mathara</option>
+                <option value="Hambanthota">Hambanthota</option>
+                <option value="Galle">Galle</option>
+                <option value="Rathnapura">Rathnapura</option>
+                <option value="Kegalle">Kegalle</option>
+                <option value="Puttlam">Puttlam</option>
+                <option value="Kurunegala">Kurunegala</option>
+                <option value="Vavuniya">Vavuniya</option>
+                <option value="Mullaitive">Mullaitive</option>
+                <option value="Mannar">Mannar</option>
+                <option value="Kilinochchi">Kilinochchi</option>
+                <option value="Jaffna">Jaffna</option>
+                <option value="Polonnaruwa">Polonnaruwa</option>
+                <option value="Anuradhapura">Anuradhapura</option>
+                <option value="Trincomalee">Trincomalee</option>
+                <option value="Batticaloa">Batticaloa</option>
+                <option value="Ampara">Ampara</option>
+                <option value="Nuwala Eliya">Nuwala Eliya</option>
+                <option value="Matale">Matale</option>
+                <option value="Kandy">Kandy</option>
+              </select>
             </div>
           </div>
 
@@ -301,14 +330,23 @@ export default function Register() {
               <label className="block text-sm font-medium text-gray-700">
                 Education Level
               </label>
-              <input
-                type="text"
+              <select
                 name="educationLevel"
                 value={educationLevel}
                 onChange={(e) => setEducationLevel(e.target.value)}
-                placeholder="Enter your education level"
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
-              />
+              >
+                <option value="">Select</option>
+                <option value="Never Married">Up to GCE O/L</option>
+                <option value="Widowed">Up to GCE A/L</option>
+                <option value="Divorced">Diploma</option>
+                <option value="Seperated">Proffessional Qualification</option>
+                <option value="Seperated">Undergraduate</option>
+                <option value="Seperated">Bachelor's degree or equivalant</option>
+                <option value="Seperated">Post graduate diploma</option>
+                <option value="Seperated">Master's degree fo equivalant</option>
+                <option value="Seperated">PHD or Post Doctoral</option>
+              </select>
             </div>
           </div>
 
@@ -398,14 +436,7 @@ export default function Register() {
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
                 placeholder="Enter your description"
               ></textarea>
-              {/* <input
-                type="text"
-                name="description"
-                value={description}
-                onChange={(e)=>setDescription(e.target.value)}
-                placeholder="Enter your description"
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
-              /> */}
+              
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700">
