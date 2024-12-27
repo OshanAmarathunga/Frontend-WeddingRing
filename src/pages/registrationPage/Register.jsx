@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { IoArrowBackCircleSharp } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
@@ -60,7 +61,17 @@ export default function Register() {
       isHoroscopeMatchingRequired:horoScopeMatching
     }
 
-    console.log(data);
+    console.log("Data",data);
+    
+
+    // axios.post(VITE_BACKEND_URL+"/save-profile",data).then((res)=>{
+    //   console.log(res);
+    //   alert("Profile Created Successfully");
+      
+    // }).catch((error)=>{
+    //   console.log(error);
+      
+    // })
     
   }
 
@@ -488,7 +499,7 @@ export default function Register() {
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700">
-                Photos ( uplaod clear full face photo)
+                Photos ( uplaod clear full face photos)
               </label>
               <input
                 type="file"
@@ -506,7 +517,7 @@ export default function Register() {
             type="submit"
             className="w-full bg-[#393E46] text-white font-bold py-2 rounded-lg hover:bg-[#222831] transition-all"
           >
-            Register
+            Register with US!
           </button>
         </form>
       </div>
