@@ -2,6 +2,9 @@ import axios from "axios";
 import React, { useState } from "react";
 import { IoArrowBackCircleSharp } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
+import { uploadFile } from "../../utils/UploadMedia";
+import { IoPersonAdd } from "react-icons/io5";
+import { MdDeleteForever } from "react-icons/md";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -24,13 +27,36 @@ export default function Register() {
   const [currentProfession, setCurrentProfession] = useState("");
   const [caste, setCaste] = useState("");
   const [description, setDescription] = useState("");
-  const [photos, setPhotos] = useState([]);
+  const [photos, setPhotos] = useState([""]);
   const [fatherProfession, setFatherProfession] = useState("");
   const [motherProfession, setMotherProfession] = useState("");
   const [horoScopeMatching, setHoroScopeMatching] = useState("");
 
   const [feet, setFeet] = useState("");
   const [inch, setInch] = useState("");
+
+  function addNewImage(e) {
+    e.preventDefault();
+
+    const newPhotos = [...photos];
+    newPhotos.push("");
+    setPhotos(newPhotos);
+  }
+
+  function deleteImage(e) {
+    e.preventDefault();
+
+    const newPhotos = [...photos];
+    newPhotos.pop();
+    setPhotos(newPhotos);
+  }
+
+  function handleUploadImages(e) {
+    e.preventDefault();
+    console.log(e.target.files);
+
+    // uploadFile()
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -39,40 +65,38 @@ export default function Register() {
       firstName: firstName,
       lastName: lastName,
       displayName: displayName,
-      gender:gender,
-      contactNo:contactNo,
-      landLineNo:landLineNo,
-      email:email,
-      birthDay:birthDay,
-      religion:religion,
-      ethnicity:ethnicity,
-      height:height,
-      civilStatus:civilStatus,
-      countryOfResidence:countryOfResidence,
-      district:district,
-      city:city,
-      educationLevel:educationLevel,
-      currentProfession:currentProfession,
-      caste:caste,
-      description:description,  
-      photos:photos,
-      fatherProfession:fatherProfession,
-      motherProfession:motherProfession,
-      isHoroscopeMatchingRequired:horoScopeMatching
-    }
+      gender: gender,
+      contactNo: contactNo,
+      landLineNo: landLineNo,
+      email: email,
+      birthDay: birthDay,
+      religion: religion,
+      ethnicity: ethnicity,
+      height: height,
+      civilStatus: civilStatus,
+      countryOfResidence: countryOfResidence,
+      district: district,
+      city: city,
+      educationLevel: educationLevel,
+      currentProfession: currentProfession,
+      caste: caste,
+      description: description,
+      photos: photos,
+      fatherProfession: fatherProfession,
+      motherProfession: motherProfession,
+      isHoroscopeMatchingRequired: horoScopeMatching,
+    };
 
-    console.log("Data",data);
-    
+    console.log("Data", data);
 
     // axios.post(VITE_BACKEND_URL+"/save-profile",data).then((res)=>{
     //   console.log(res);
     //   alert("Profile Created Successfully");
-      
+
     // }).catch((error)=>{
     //   console.log(error);
-      
+
     // })
-    
   }
 
   return (
@@ -262,7 +286,6 @@ export default function Register() {
                 Height
               </label>
               <div className="grid grid-cols-2 gap-4">
-                
                 <div>
                   <input
                     type="text"
@@ -501,14 +524,34 @@ export default function Register() {
               <label className="block text-sm font-medium text-gray-700">
                 Photos ( uplaod clear full face photos)
               </label>
-              <input
-                type="file"
-                name="photos"
-                value={photos}
-                onChange={(e) => setPhotos(e.target.value)}
-                placeholder="Add your photos"
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
-              />
+              {photos &&
+                photos.map((each, index) => (
+                  <div key={index} className="grid grid-cols-2 gap-4">
+                    <input
+                      type="file"
+                      name="photos"
+                      onChange={handleUploadImages}
+                      placeholder="Add your photos"
+                      className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
+                    />
+                    <div className="flex items-center">
+                      <button
+                        onClick={addNewImage}
+                        className="bg-yellow-200 p-1 rounded-md hover:bg-yellow-400 shadow-md mx-2"
+                      >
+                        <IoPersonAdd />
+                      </button>
+                      { index >= 1 &&
+                        <button
+                          onClick={deleteImage}
+                          className="bg-yellow-200 p-1 rounded-md hover:bg-yellow-400 shadow-md"
+                        >
+                          <MdDeleteForever />
+                        </button>
+                      }
+                    </div>
+                  </div>
+                ))}
             </div>
           </div>
 
