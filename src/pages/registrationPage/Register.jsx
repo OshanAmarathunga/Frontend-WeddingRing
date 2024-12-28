@@ -111,7 +111,6 @@ export default function Register() {
       <Backdrop
         sx={(theme) => ({ color: "#fff", zIndex: theme.zIndex.drawer + 1 })}
         open={open}
-        
       >
         <CircularProgress color="inherit" />
       </Backdrop>
@@ -140,6 +139,7 @@ export default function Register() {
                 First Name
               </label>
               <input
+                required
                 type="text"
                 name="firstName"
                 value={firstName}
@@ -154,6 +154,7 @@ export default function Register() {
               </label>
               <input
                 type="text"
+                required
                 name="lastName"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
@@ -167,6 +168,7 @@ export default function Register() {
               </label>
               <input
                 type="text"
+                required
                 name="displayName"
                 value={displayName}
                 onChange={(e) => setDisplayName(e.target.value)}
@@ -185,6 +187,7 @@ export default function Register() {
               </label>
               <select
                 name="gender"
+                required
                 value={gender}
                 onChange={(e) => setGender(e.target.value)}
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
@@ -201,6 +204,7 @@ export default function Register() {
               </label>
               <input
                 type="date"
+                required
                 name="birthDay"
                 value={birthDay}
                 onChange={(e) => setBirthDay(e.target.value)}
@@ -213,6 +217,7 @@ export default function Register() {
               </label>
               <input
                 type="email"
+                required
                 name="displayName"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -230,6 +235,7 @@ export default function Register() {
               </label>
               <input
                 type="text"
+                required
                 name="contactNo"
                 value={contactNo}
                 onChange={(e) => setContactNo(e.target.value)}
@@ -260,6 +266,7 @@ export default function Register() {
               </label>
               <select
                 name="religion"
+                required
                 value={religion}
                 onChange={(e) => setReligion(e.target.value)}
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
@@ -281,6 +288,7 @@ export default function Register() {
               </label>
               <select
                 name="ethnicity"
+                required
                 value={ethnicity}
                 onChange={(e) => setEthnicity(e.target.value)}
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
@@ -303,6 +311,7 @@ export default function Register() {
                 <div>
                   <input
                     type="text"
+                    required
                     name="feet"
                     value={feet}
                     onChange={(e) => setFeet(e.target.value)}
@@ -314,6 +323,7 @@ export default function Register() {
                   <input
                     type="text"
                     name="inch"
+                    required
                     value={inch}
                     onChange={(e) => setInch(e.target.value)}
                     placeholder="Inch"
@@ -328,6 +338,7 @@ export default function Register() {
               </label>
               <select
                 name="horoScopeMatching"
+                required
                 value={civilStatus}
                 onChange={(e) => setCivilStatus(e.target.value)}
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
@@ -347,6 +358,7 @@ export default function Register() {
                 Country Of Residence
               </label>
               <select
+              required
                 name="countryOfResidence"
                 value={countryOfResidence}
                 onChange={(e) => setCountryOfResidence(e.target.value)}
@@ -373,6 +385,7 @@ export default function Register() {
               </label>
               <select
                 name="district"
+                required
                 value={district}
                 onChange={(e) => setDistrict(e.target.value)}
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
@@ -414,6 +427,7 @@ export default function Register() {
               </label>
               <input
                 type="text"
+                required
                 name="city"
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
@@ -427,6 +441,7 @@ export default function Register() {
               </label>
               <select
                 name="educationLevel"
+                required
                 value={educationLevel}
                 onChange={(e) => setEducationLevel(e.target.value)}
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
@@ -454,6 +469,7 @@ export default function Register() {
               </label>
               <input
                 type="text"
+                required
                 name="currentProfession"
                 value={currentProfession}
                 onChange={(e) => setCurrentProfession(e.target.value)}
@@ -468,6 +484,7 @@ export default function Register() {
               <input
                 type="text"
                 name="caste"
+                required
                 value={caste}
                 onChange={(e) => setCaste(e.target.value)}
                 placeholder="Enter your caste"
@@ -509,6 +526,7 @@ export default function Register() {
               </label>
               <select
                 name="horoScopeMatching"
+                required
                 value={horoScopeMatching}
                 onChange={(e) => setHoroScopeMatching(e.target.value)}
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
@@ -527,6 +545,7 @@ export default function Register() {
               </label>
               <textarea
                 name="description"
+                required
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 rows={1}
