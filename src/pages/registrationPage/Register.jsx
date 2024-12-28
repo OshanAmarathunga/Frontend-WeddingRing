@@ -3,8 +3,9 @@ import React, { useState } from "react";
 import { IoArrowBackCircleSharp } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 import { uploadFile } from "../../utils/UploadMedia";
-import { IoPersonAdd } from "react-icons/io5";
-import { MdDeleteForever } from "react-icons/md";
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
+import Button from "@mui/material/Button";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -35,14 +36,25 @@ export default function Register() {
   const [feet, setFeet] = useState("");
   const [inch, setInch] = useState("");
 
+  const [open, setOpen] = React.useState(false);
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
   async function handleUploadImages(e) {
     e.preventDefault();
+    handleOpen();
+
     const files = e.target.files;
     const file = files[0];
     try {
       const res = await uploadFile(file);
       if (res.status === "success") {
         setPhotos([...photos, res.data]);
+        handleClose();
       } else {
         console.log("File upload failed. Check console for details.");
       }
@@ -96,6 +108,13 @@ export default function Register() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#FFD369] to-[#FFD369] flex items-center justify-center p-4">
+      <Backdrop
+        sx={(theme) => ({ color: "#fff", zIndex: theme.zIndex.drawer + 1 })}
+        open={open}
+        onClick={handleClose}
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
       <div className="bg-white rounded-lg shadow-xl p-8 w-full max-w-4xl">
         <div className="flex justify-between items-center text-center">
           <h2 className="text-3xl font-Roboto font-bold text-center text-[#222831] mb-6">
