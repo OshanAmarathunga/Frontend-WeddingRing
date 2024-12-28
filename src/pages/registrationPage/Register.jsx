@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { uploadFile } from "../../utils/UploadMedia";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
-import Button from "@mui/material/Button";
+import { Toaster, toast } from 'sonner'
 
 export default function Register() {
   const navigate = useNavigate();
@@ -95,6 +95,7 @@ export default function Register() {
     };
 
     console.log("Data", data);
+    toast.success('Suucessfully Registered')
 
     // axios.post(VITE_BACKEND_URL+"/save-profile",data).then((res)=>{
     //   console.log(res);
@@ -108,6 +109,7 @@ export default function Register() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#FFD369] to-[#FFD369] flex items-center justify-center p-4">
+      <Toaster richColors position="top-center" />
       <Backdrop
         sx={(theme) => ({ color: "#fff", zIndex: theme.zIndex.drawer + 1 })}
         open={open}
