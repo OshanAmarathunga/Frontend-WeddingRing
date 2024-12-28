@@ -27,7 +27,7 @@ export default function Register() {
   const [currentProfession, setCurrentProfession] = useState("");
   const [caste, setCaste] = useState("");
   const [description, setDescription] = useState("");
-  const [photos, setPhotos] = useState([""]);
+  const [photos, setPhotos] = useState([]);
   const [fatherProfession, setFatherProfession] = useState("");
   const [motherProfession, setMotherProfession] = useState("");
   const [horoScopeMatching, setHoroScopeMatching] = useState("");
@@ -35,28 +35,23 @@ export default function Register() {
   const [feet, setFeet] = useState("");
   const [inch, setInch] = useState("");
 
-  function addNewImage(e) {
+  async function handleUploadImages(e) {
     e.preventDefault();
-
-    const newPhotos = [...photos];
-    newPhotos.push("");
-    setPhotos(newPhotos);
+    const files = e.target.files;
+    const file = files[0];
+    try {
+      const res = await uploadFile(file);
+      if (res.status === "success") {
+        setPhotos([...photos, res.data]);
+      } else {
+        console.log("File upload failed. Check console for details.");
+      }
+    } catch (err) {}
   }
 
-  function deleteImage(e) {
-    e.preventDefault();
-
-    const newPhotos = [...photos];
-    newPhotos.pop();
-    setPhotos(newPhotos);
-  }
-
-  function handleUploadImages(e) {
-    e.preventDefault();
-    console.log(e.target.files);
-
-    // uploadFile()
-  }
+  const handleDeleteImage = (url) => {
+    setPhotos((prev) => prev.filter((image) => image !== url));
+  };
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -522,36 +517,36 @@ export default function Register() {
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700">
-                Photos ( uplaod clear full face photos)
+                Photos (Upload clear full-face photos)
               </label>
-              {photos &&
-                photos.map((each, index) => (
-                  <div key={index} className="grid grid-cols-2 gap-4">
-                    <input
-                      type="file"
-                      name="photos"
-                      onChange={handleUploadImages}
-                      placeholder="Add your photos"
-                      className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
+
+              <div className="grid grid-cols-2 gap-4">
+                <input
+                  type="file"
+                  name="photos"
+                  onChange={handleUploadImages}
+                  placeholder="Add your photos"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#820059]"
+                />
+              </div>
+
+              <div className="mt-4 grid grid-cols-6 gap-1">
+                {photos.map((url, index) => (
+                  <div key={index} className="relative">
+                    <img
+                      src={url}
+                      alt="Uploaded"
+                      className="w-32 h-32 object-cover rounded-lg border border-gray-300"
                     />
-                    <div className="flex items-center">
-                      <button
-                        onClick={addNewImage}
-                        className="bg-yellow-200 p-1 rounded-md hover:bg-yellow-400 shadow-md mx-2"
-                      >
-                        <IoPersonAdd />
-                      </button>
-                      { index >= 1 &&
-                        <button
-                          onClick={deleteImage}
-                          className="bg-yellow-200 p-1 rounded-md hover:bg-yellow-400 shadow-md"
-                        >
-                          <MdDeleteForever />
-                        </button>
-                      }
-                    </div>
+                    <button
+                      onClick={() => handleDeleteImage(url)}
+                      className="absolute top-2 bg-red-500 text-white rounded-full p-1 hover:bg-red-600"
+                    >
+                      ✕
+                    </button>
                   </div>
                 ))}
+              </div>
             </div>
           </div>
 
