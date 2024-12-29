@@ -67,6 +67,7 @@ export default function Register() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    handleOpen();
 
     const data = {
       firstName: firstName,
@@ -93,18 +94,23 @@ export default function Register() {
       motherProfession: motherProfession,
       isHoroscopeMatchingRequired: horoScopeMatching,
     };
+    
+    axios.post(import.meta.env.VITE_BACKEND_URL+"/save-profile",data).then((res)=>{
+      
+      if(res.data.errorMessage=='Duplicate Email'){
+        handleClose();
+        toast.error('This email is already registered');
 
-    console.log("Data", data);
-    toast.success('Suucessfully Registered')
+      }else{
+        handleClose();
+        toast.success('Suucessfully Registered')
+      }
+     
 
-    // axios.post(VITE_BACKEND_URL+"/save-profile",data).then((res)=>{
-    //   console.log(res);
-    //   alert("Profile Created Successfully");
+    }).catch((error)=>{
+      console.log(error);
 
-    // }).catch((error)=>{
-    //   console.log(error);
-
-    // })
+    })
   }
 
   return (
