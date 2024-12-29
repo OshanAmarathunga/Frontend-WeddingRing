@@ -5,7 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { uploadFile } from "../../utils/UploadMedia";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
-import { Toaster, toast } from 'sonner'
+import { Toaster, toast } from "sonner";
+import { Calculate } from "@mui/icons-material";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -19,7 +20,7 @@ export default function Register() {
   const [birthDay, setBirthDay] = useState("");
   const [religion, setReligion] = useState("");
   const [ethnicity, setEthnicity] = useState("");
-  const [height, setHeight] = useState("");
+  const [height, setHeight] = useState(0);
   const [civilStatus, setCivilStatus] = useState("");
   const [countryOfResidence, setCountryOfResidence] = useState("");
   const [district, setDistrict] = useState("");
@@ -33,8 +34,8 @@ export default function Register() {
   const [motherProfession, setMotherProfession] = useState("");
   const [horoScopeMatching, setHoroScopeMatching] = useState("");
 
-  const [feet, setFeet] = useState("");
-  const [inch, setInch] = useState("");
+  const [feet, setFeet] = useState(0);
+  const [inch, setInch] = useState(0);
 
   const [open, setOpen] = React.useState(false);
   const handleClose = () => {
@@ -65,10 +66,43 @@ export default function Register() {
     setPhotos((prev) => prev.filter((image) => image !== url));
   };
 
+  function clearForm() {
+    setFirstName("");
+    setLastName("");
+    setDisplayName("");
+    setGender("");
+    setContactNo("");
+    setLandLineNo("");
+    setEmail("");
+    setBirthDay("");
+    setReligion("");
+    setEthnicity("");
+    setHeight("");
+    setCivilStatus("");
+    setCountryOfResidence("");
+    setDistrict("");
+    setCity("");
+    setEducationLevel("");
+    setCurrentProfession("");
+    setCaste("");
+    setDescription("");
+    setPhotos([]);
+    setFatherProfession("");
+    setMotherProfession("");
+    setHoroScopeMatching("");
+    setFeet(0);
+    setInch(0);
+  }
+
+  
+
+
   function handleSubmit(e) {
     e.preventDefault();
     handleOpen();
 
+    const heightCalculation = Number(feet)+(inch/12);
+    
     const data = {
       firstName: firstName,
       lastName: lastName,
@@ -80,7 +114,7 @@ export default function Register() {
       birthDay: birthDay,
       religion: religion,
       ethnicity: ethnicity,
-      height: height,
+      height: heightCalculation.toFixed(2),
       civilStatus: civilStatus,
       countryOfResidence: countryOfResidence,
       district: district,
@@ -94,18 +128,20 @@ export default function Register() {
       motherProfession: motherProfession,
       isHoroscopeMatchingRequired: horoScopeMatching,
     };
-    
+
+    console.log(data);
+
     axios.post(import.meta.env.VITE_BACKEND_URL+"/save-profile",data).then((res)=>{
-      
+
       if(res.data.errorMessage=='Duplicate Email'){
         handleClose();
         toast.error('This email is already registered');
 
       }else{
         handleClose();
-        toast.success('Suucessfully Registered')
+        toast.success('Suucessfully Registered');
+        clearForm();
       }
-     
 
     }).catch((error)=>{
       console.log(error);
@@ -366,7 +402,7 @@ export default function Register() {
                 Country Of Residence
               </label>
               <select
-              required
+                required
                 name="countryOfResidence"
                 value={countryOfResidence}
                 onChange={(e) => setCountryOfResidence(e.target.value)}
