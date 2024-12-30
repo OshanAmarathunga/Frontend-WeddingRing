@@ -34,8 +34,8 @@ export default function Register() {
   const [motherProfession, setMotherProfession] = useState("");
   const [horoScopeMatching, setHoroScopeMatching] = useState("");
 
-  const [feet, setFeet] = useState(0);
-  const [inch, setInch] = useState(0);
+  const [feet, setFeet] = useState("");
+  const [inch, setInch] = useState("");
 
   const [open, setOpen] = React.useState(false);
   const handleClose = () => {
@@ -101,7 +101,7 @@ export default function Register() {
     e.preventDefault();
     handleOpen();
 
-    const heightCalculation = Number(feet)+(inch/12);
+    const heightCalculation = parseFloat((Number(feet)+(Number(inch)/12)).toFixed(2));
     
     const data = {
       firstName: firstName,
@@ -114,7 +114,7 @@ export default function Register() {
       birthDay: birthDay,
       religion: religion,
       ethnicity: ethnicity,
-      height: heightCalculation.toFixed(2),
+      height: heightCalculation,
       civilStatus: civilStatus,
       countryOfResidence: countryOfResidence,
       district: district,
